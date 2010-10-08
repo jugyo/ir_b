@@ -29,7 +29,7 @@ module IrB
     def -(_binding)
       file = _binding.eval '__FILE__'
       ir_b_line = _binding.eval '__LINE__'
-      puts "#{file}:#{ir_b_line} \e[90mtxmt://open/?url=file://#{ File.expand_path file }&line=#{ ir_b_line }\e[0m"
+      puts "#{file}:#{ir_b_line} \e[90mtxmt://open/?url=file://#{ File.expand_path(file).sub(File.expand_path('~'), '~') }&line=#{ ir_b_line }\e[0m"
 
       File.open(file).each_with_index do |line, index|
         line_n = index + 1
