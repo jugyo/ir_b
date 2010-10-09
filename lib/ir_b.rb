@@ -36,11 +36,10 @@ module IrB
         next unless line_n > (ir_b_line - 6)
         break if line_n > (ir_b_line + 5)
         if line_n == ir_b_line
-          color = "\e[100m"
+          puts "\e[100m =>#{line_n.to_s.rjust(3)}: #{line.chomp} \e[0m"
         else
-          color = "\e[90m"
+          puts "\e[90m#{line_n.to_s.rjust(6)}: #{line.chomp} \e[0m"
         end
-        puts color + "#{line_n.to_s.rjust(5)}: #{line.strip} \e[0m"
       end
 
       IRB.start_session(_binding)
