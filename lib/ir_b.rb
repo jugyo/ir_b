@@ -29,16 +29,16 @@ module IrB
     def -(_binding)
       file = _binding.eval '__FILE__'
       ir_b_line = _binding.eval '__LINE__'
-      puts "#{file}:#{ir_b_line} \e[90mtxmt://open/?url=file://#{ File.expand_path(file).sub(File.expand_path('~'), '~') }&line=#{ ir_b_line }\e[0m"
+      puts "#{file}:#{ir_b_line}"
 
       File.open(file).each_with_index do |line, index|
         line_n = index + 1
         next unless line_n > (ir_b_line - 6)
         break if line_n > (ir_b_line + 5)
         if line_n == ir_b_line
-          puts "\e[100m =>#{line_n.to_s.rjust(3)}: #{line.chomp} \e[0m"
+          puts " =>#{line_n.to_s.rjust(3)}: #{line.chomp}"
         else
-          puts "\e[90m#{line_n.to_s.rjust(6)}: #{line.chomp} \e[0m"
+          puts "#{line_n.to_s.rjust(6)}: #{line.chomp}"
         end
       end
 
