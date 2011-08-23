@@ -11,11 +11,15 @@ Install
 Usage
 ----
 
+    require 'ir_b'
+    ...
+    ir b # or ir-b
+
+or with [pry](http://pry.github.com/):
+
+    require 'ir_b/pry'
+    ...
     ir b
-
-or
-
-    ir-b
 
 Detail
 ----
