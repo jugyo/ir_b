@@ -10,8 +10,6 @@ begin
     gem.email = "jugyo.org@gmail.com"
     gem.homepage = "http://github.com/jugyo/ir_b"
     gem.authors = ["jugyo"]
-    gem.add_dependency "pry"
-    gem.add_dependency "pry-doc"
     gem.add_development_dependency "shoulda", ">= 0"
     gem.add_development_dependency "rr", ">= 0"
   end

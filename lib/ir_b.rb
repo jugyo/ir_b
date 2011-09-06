@@ -30,7 +30,6 @@ module IrB
 
     def -(_binding)
       if pry
-        require 'pry'
         _binding.pry
       else
         file = _binding.eval '__FILE__'
