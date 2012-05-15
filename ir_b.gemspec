@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "ir_b"
   gem.require_paths = ["lib"]
-  gem.version       = '1.4.0'
+  gem.version       = '1.5.0'
 
   gem.add_development_dependency "shoulda", ">= 0"
   gem.add_development_dependency "rr", ">= 0"
