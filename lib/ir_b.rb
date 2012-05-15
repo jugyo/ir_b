@@ -26,11 +26,11 @@ end
 
 module IrB
   class << self
-    attr_accessor :pry
+    attr_accessor :launch_method
 
     def -(_binding)
-      if pry
-        _binding.pry
+      if launch_method
+        _binding.__send__(launch_method)
       else
         file = _binding.eval '__FILE__'
         ir_b_line = _binding.eval '__LINE__'
@@ -48,6 +48,15 @@ module IrB
         end
 
         IRB.start_session(_binding)
+      end
+    end
+
+    def using(lib, launch_method)
+      begin
+        require lib
+        @launch_method = launch_method
+      rescue LoadError => e
+        warn "LoadError: please install pry => `gem install #{lib}`"
       end
     end
   end
